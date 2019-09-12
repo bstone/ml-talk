@@ -1,0 +1,11 @@
+## Sublime
+
+{
+	"cmd": ["pandoc", "-o", "math355-slides.html", "-s", "--webtex", "-i",  "-t", "slidy", "$file"],
+	"cmd": ["pandoc","-o", "math355-slides.pdf", "--pdf-engine=pdflatex", "-s", "$file"]	
+}
+
+## Terminal
+
+
+pandoc -s --mathml -i -t slidy slide1.md slide2.md slide3.md -o test.html

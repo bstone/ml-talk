@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Branden Stone">
+  <title>Math of Machine Learning</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js/css/reset.css">
+  <link rel="stylesheet" href="./reveal.js/css/reveal.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="./reveal.js/lib/css/monokai.css">
+  <style>
+      /*code{white-space: pre-wrap;}*/
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="./reveal.js/css/theme/simple.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? './reveal.js/css/print/pdf.css' : './reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="./reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Math of Machine Learning</h1>
+  <p class="author">Branden Stone</p>
+  <p class="date">Fall 2019</p>
+</section>
+
+<section id="getting-started-with-git" class="slide level2">
+<h2>Getting started with Git</h2>
+<p>Today we will discuss the delivery method of all course materials, assignments, and projects. This method will rely on learning <code>git</code>.</p>
+<ul>
+<li class="fragment">According to <a href="https://en.wikipedia.org/wiki/Git_(software)">Wikipedia</a>, “Git is a version control system that is used for software development and other version control tasks. As a distributed revision control system it is aimed at speed, data integrity, and support for distributed, non-linear workflows.”</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Basically, it is a more sophisticated Dropbox and allows you to keep your code up to date across multiple platforms.</li>
+</ul>
+<ul>
+<li class="fragment">A complete walk through of Git can be found online at <a href="https://git-scm.com/book/en/v2"><code>https://git-scm.com/book/en/v2</code></a>.</li>
+<li class="fragment">Today we will only learn the basics.</li>
+</ul>
+</section>
+<section id="sign-up-with-github" class="slide level2">
+<h2>Sign up with GitHub</h2>
+<p>If you don’t already have an account, you will need a GitHub account. You can do so here: <a href="https://github.com/">https://github.com/</a>.</p>
+<ul>
+<li class="fragment">I’ll wait here while you do this. <img data-src="./img/cat-waiting.gif" /></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Once you are finished, go to blackboard and click on the first homework a for Week 01</li>
+<li>This will send me your github info</li>
+<li>I will use this to send an invitation</li>
+</ul>
+</aside>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>Once you have accepted your invite, you now have access to the coures materials. The page should look something like this. Feel free to poke around.</p>
+<ul>
+<li><a href="https://github.com/math-355%20=50x50"><code>https://github.com/math-355</code></a></li>
+</ul>
+<p><img src="./img/organization-landing-page.png" width="600"/></p>
+<aside class="notes">
+<ul>
+<li>After everyone is signed up, go to the syllabus page and talk about it.</li>
+<li>Once done come back here for Git stuff.</li>
+</ul>
+</aside>
+</section>
+<section id="cloning-a-repo" class="slide level2">
+<h2>Cloning a Repo</h2>
+<p>First, what is a repo and why would you want to clone it? <strong>Repo</strong> is short for repository which is basically a directory of files and folders. Individually you have a GitHub account and you are now members of the GitHub Organization Math-355. All examples, homework, syllabi, resources, etc. will be stored in individual repos in the organization (not your personal account)</p>
+</section>
+<section class="slide level2">
+
+<p>So now what? All of your desired repos are sitting on some magical server. How do you get your hands on it?</p>
+<ol type="1">
+<li class="fragment">Use the GitHub interface (lame)
+<ul>
+<li class="fragment">Downloading this way does not allow for version control</li>
+<li class="fragment">This will result in 1990s style backups</li>
+</ul></li>
+<li class="fragment">Use <code>git</code> to clone the repo (cool kids do this)
+<ul>
+<li class="fragment"><code>git</code> will allow for the server and your local machine to communicate</li>
+<li class="fragment">This way all local changes can be pushed to the server.</li>
+</ul></li>
+</ol>
+<aside class="notes">
+<ul>
+<li>Stop and talk about these points</li>
+</ul>
+</aside>
+</section>
+<section id="github-interface" class="slide level2" data-background-color="#ff0000">
+<h2>GitHub Interface</h2>
+<p>We will walk through this method, but working this way will NOT allow you to turn in homework.</p>
+<p><a href="https://github.com/math-355">https://github.com/math-355</a></p>
+</section>
+<section id="command-line-with-git" class="slide level2">
+<h2>Command Line with <code>git</code></h2>
+<ul>
+<li>If you have a mac or linux, you’re done.</li>
+<li>Or you could follow along and get a newer version of <code>git</code>.</li>
+</ul>
+<ul>
+<li class="fragment">If you have Windows OS, then you will need to download and install <code>git</code>.</li>
+<li class="fragment"><a href="https://git-scm.com/download/">https://git-scm.com/download/</a></li>
+<li class="fragment">This should install a program called <code>git bash</code>. (I think)</li>
+</ul>
+</section>
+<section id="navigating-the-command-line" class="slide level2">
+<h2>Navigating the command line</h2>
+<p>Once you have <code>git</code> installed, open up <code>terminal</code> (mac/linux) or <code>git bash</code> (windows).</p>
+<ul>
+<li class="fragment"><code>ls</code> — gives you a list of items in the directory</li>
+<li class="fragment"><code>cd DIRCTORY</code> — changes directory to one you can see with <code>ls</code></li>
+<li class="fragment"><code>cd ..</code> — moves up a directory</li>
+</ul>
+<aside class="notes">
+<p>Try it out!</p>
+</aside>
+</section>
+<section id="our-first-clone" class="slide level2">
+<h2>Our first clone</h2>
+<p>It’s time to clone a repo. Go to your a first homework assignment and click on the button that says</p>
+<p><code>Clone or download</code></p>
+<p>then copy the link. Then type the following into the command line.</p>
+<pre><code>$ git clone COPIEDLINK
+$ cd week-01-getting-started-fall-2019-USERNAME
+$ ls</code></pre>
+<aside class="notes">
+<p>Make sure and mention what the $ is for</p>
+</aside>
+<!-- <pre><code class="hljs" data-trim data-line-numbers="4,8-11">
+import React, { useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;You clicked {count} times&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;&lt;button onClick={() =&gt; setCount(count + 1)}&gt;&lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Click me
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+ -->
+<!-- Well you could use the GitHub interface, but that is lame. So we need to get the files to your local machine. There are several ways to do this, but the cool kids like to clone. __Cloning__ is just copying and pasting the repo to your local machine. To do this we need to get our hands a little dirty with the following steps.
+
+* Open `Git Bash` (or `Git Shell` on some machines) on your machine. This is a command line interface that allows you to communicate with GitHub.
+* Once you have `Git Bash` open, type `cd Desktop` and hit enter. This will make sure all downloads are placed on your desktop.
+* Look for a green button on this page that says `Clone or download`, click it, and copy the text. It should look something like this: `https://github.com/YOURUSERNAME/Lab01-Intro-to-GitHub-Spring-2018.git`. 
+* Go back to Git Bash and enter the following (note, don't enter the `$`, it's just there to tell you that is the start of the line):
+```
+$ git clone https://github.com/YOURUSERNAME/Lab01-Intro-to-GitHub-Spring-2018.git
+```
+* Next change directory to the repo by typing:
+```
+$ cd Lab01-Intro-to-GitHub-Spring-2018
+```
+* Look into the repo by typing:
+```
+$ ls
+```
+
+You see? All of the files are there! This is great right? Now you have a local copy of the repo sitting on your machine. No matter what you do, you will not mess up the originals. All of your edits/changes will be local on your machine until you push your changes back to the server. So let's do that. -->
+</section>
+<section id="why-should-use-git" class="slide level2">
+<h2>Why should use <code>Git</code>?</h2>
+<p>The main reason right now is because we will be using it to turn in assignments during this class. But besides that it is a very powerful tool that will help future you be successful. Here are a few reasons why git is great:</p>
+<ul>
+<li class="fragment">Version control, keeps all machines up to date</li>
+<li class="fragment">Helps keep track of conflicts</li>
+<li class="fragment">Complete history of your projects</li>
+<li class="fragment">Easy testing without breaking your code</li>
+</ul>
+</section>
+<section id="how-to-do-your-homework-anaconda" class="slide level2">
+<h2>How to do your homework (Anaconda)</h2>
+<ul>
+<li class="fragment">Open Anaconda Navigator
+<ul>
+<li class="fragment">Launch Jupyter Notebook</li>
+<li class="fragment">Navigate to file in homework repo</li>
+<li class="fragment">Edit, commit, push</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-to-do-your-homework-command-line" class="slide level2">
+<h2>How to do your homework (Command Line)</h2>
+<p>Install and run Jupyter Notebook</p>
+<pre><code>$ python3 -m pip install jupyter --user
+$ jupyter notebook</code></pre>
+<ul>
+<li class="fragment">Navigate to file in homework repo</li>
+<li class="fragment">Edit, commit, push</li>
+</ul>
+</section>
+<section id="review" class="slide level2">
+<h2>Review</h2>
+<p>Here is a quick overview of <code>git</code>. For all future labs, the work-flow will be as follows:</p>
+<ul>
+<li class="fragment">Clone repo to your local machine
+<ul>
+<li class="fragment"><code>git clone url/to/repo</code></li>
+</ul></li>
+<li class="fragment">Navigate to repo (using <code>cd</code> and <code>ls</code>)</li>
+<li class="fragment">Add files if needed (<code>git add filename</code>)</li>
+<li class="fragment">Commit any new changes
+<ul>
+<li class="fragment"><code>git commit -am 'message'</code></li>
+</ul></li>
+<li class="fragment">Pull new changes from server (<code>git pull</code>)</li>
+<li class="fragment">Push your changes to server (<code>git push</code>)</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="./reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: './reveal.js/plugin/markdown/marked.js' },
+          { src: './reveal.js/plugin/markdown/markdown.js' },
+          // { src: './reveal.js/plugin/notes/notes.js', async: true },
+          { src: './reveal.js/plugin/highlight/highlight.js', async: true },
+          { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: './reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: './reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

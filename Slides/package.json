@@ -1,0 +1,27 @@
+{
+  "name": "math355-slides",
+  "version": "1.0.0",
+  "description": "Slides for math 355",
+  "main": "math355-slides.html",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/math-355/DevResources.git"
+  },
+  "keywords": [
+    "math",
+    "slides"
+  ],
+  "author": "Branden Stone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/math-355/DevResources/issues"
+  },
+  "homepage": "https://github.com/math-355/DevResources#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

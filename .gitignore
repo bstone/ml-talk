@@ -1,0 +1,4 @@
+.DS_Store
+.nbgrader.log
+.ipynb_checkpoints/
+dogs_vs_cats/

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Branden Stone">
+  <title>Demystifying Machine Learning</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js/css/reset.css">
+  <link rel="stylesheet" href="./reveal.js/css/reveal.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="./reveal.js/lib/css/monokai.css">
+  <style>
+      /*code{white-space: pre-wrap;}*/
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="./reveal.js/css/theme/simple.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? './reveal.js/css/print/pdf.css' : './reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="./reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+  </script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Demystifying Machine Learning</h1>
+  <p class="author">Branden Stone</p>
+  <p class="date">Hamilton College</p>
+</section>
+
+<section id="what-is-machine-learning" class="slide level2">
+<h2>What is Machine Learning?</h2>
+<p>Simply put, machine learning is the science of programming computers so they can <em>learn from data</em>.</p>
+<ul>
+<li class="fragment">(Aurthur Samuel, 1959) Machine learning is the field of study that gives computers the ability to learn without being explicitly programmed.</li>
+</ul>
+</section>
+<section id="example-the-spam-filter" class="slide level2">
+<h2>Example: The SPAM filter</h2>
+<p><img data-src="./img/spam-filter.jpg" /></p>
+</section>
+<section id="naive-approach" class="slide level2">
+<h2>Naive approach</h2>
+<p><img data-src="./img/spam-traditional.png" /></p>
+<ul>
+<li class="fragment">You notice <em>4U</em>, <em>free</em>, <em>amazing</em> are used a lot</li>
+<li class="fragment">Then write code to stop these emails</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>But if the spammers notice they are being blocked, they will start using <em>4 you</em> instead.</p>
+<ul>
+<li class="fragment">If this happens you need to write more rules</li>
+<li class="fragment">Your code will become exponentially large and unmanageable.</li>
+<li class="fragment">Thankfully there is a better way.</li>
+</ul>
+</section>
+<section id="ml-approach" class="slide level2">
+<h2>ML Approach</h2>
+<p><img data-src="./img/spam-ml.png" /></p>
+<ul>
+<li class="fragment">All of this can be automated!</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Blocking SPAM is not the only thing ML is good for. You can use it for</p>
+<ul>
+<li class="fragment">Problems for which existing solutions require a lot rules</li>
+<li class="fragment">Complex problems where there is not good traditional solutions</li>
+<li class="fragment">Fluctuating environments</li>
+<li class="fragment">Getting insights about large amounts of data</li>
+<li class="fragment">Differentiating dog and cat pictures</li>
+</ul>
+</section>
+<section id="there-are-three-main-tasks." class="slide level2">
+<h2>There are three main tasks.</h2>
+<ul>
+<li class="fragment">Supervised</li>
+<li class="fragment">Unsupervised</li>
+<li class="fragment">Reinforcement</li>
+</ul>
+</section>
+<section id="supervised-learning" class="slide level2">
+<h2>Supervised Learning</h2>
+<p><img data-src="./img/supervised-ml.png" /></p>
+</section>
+<section class="slide level2">
+
+<p>Types of supervised learning include:</p>
+<ul>
+<li class="fragment">Regression</li>
+<li class="fragment">Decision Trees</li>
+<li class="fragment">Random Forests</li>
+<li class="fragment">Support Vector Machine</li>
+<li class="fragment">Neural Networks</li>
+</ul>
+</section>
+<section id="unsupervised-learning" class="slide level2">
+<h2>Unsupervised Learning</h2>
+<p><img data-src="./img/unsupervised2.png" /> <img data-src="./img/unsupervised1.png" /></p>
+</section>
+<section class="slide level2">
+
+<p>Types of unsupervised learning include:</p>
+<ul>
+<li class="fragment">k-clusters</li>
+<li class="fragment">Principle Component Analysis</li>
+<li class="fragment">Expectation Maximization</li>
+<li class="fragment">t-distributed Stochastic Neighbor Embedding</li>
+<li class="fragment">Apriori</li>
+<li class="fragment">Eclat</li>
+</ul>
+</section>
+<section id="reinforcement" class="slide level2">
+<h2>Reinforcement</h2>
+<p><img data-src="./img/reinforcement-ml.png" /></p>
+<ul>
+<li class="fragment">AI</li>
+<li class="fragment">AlphaGo</li>
+</ul>
+</section>
+<section id="example-k-clusters" class="slide level2">
+<h2>Example: K-Clusters</h2>
+<ol type="1">
+<li class="fragment">k points of the data are chosen to be centroids.</li>
+<li class="fragment">Distances between every point and the k centroids are calculated and stored.</li>
+<li class="fragment">Each data point is then assigned to the nearest cluster</li>
+<li class="fragment">New cluster centroid positions are updated: similar to finding the mean of the points</li>
+<li class="fragment">If the centroid locations changed, the process repeats from step 2, until the calculated new center stays the same, which signals that the clusters’ members and centroids are now set.</li>
+</ol>
+</section>
+<section id="k-clusters-in-action" class="slide level2">
+<h2>K-Clusters in action</h2>
+<p><a href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/"><img data-src="./img/k-cluster-action.png" /></a></p>
+</section>
+<section id="uses-k-clusters" class="slide level2">
+<h2>Uses K-Clusters</h2>
+<ol type="1">
+<li class="fragment">Image Segmentation and patters recognition</li>
+<li class="fragment">Grouping Comments from the news</li>
+<li class="fragment">Grouping inventory by sales activity</li>
+<li class="fragment">Clustering animals by movement</li>
+<li class="fragment">Bot Detection</li>
+</ol>
+</section>
+<section id="objective-function" class="slide level2">
+<h2>Objective function</h2>
+<p>Formally we are trying to minimize the following:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>K</mi></munderover><munder><mo>∑</mo><mrow><mi>n</mi><mo>∈</mo><msub><mi>S</mi><mi>j</mi></msub></mrow></munder><mo stretchy="false" form="prefix">|</mo><msub><mi>x</mi><mi>n</mi></msub><mo>−</mo><msub><mi>μ</mi><mi>j</mi></msub><msup><mo stretchy="false" form="prefix">|</mo><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+J=\sum_{j=1}^K \sum_{n \in S_j} |x_n-\mu_j|^2.
+</annotation></semantics></math></p>
+<p>Here we are clustering <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math> data points into <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>K</mi><annotation encoding="application/x-tex">K</annotation></semantics></math> disjoint subsets <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>j</mi></msub><annotation encoding="application/x-tex">S_j</annotation></semantics></math> containing <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>j</mi></msub><annotation encoding="application/x-tex">N_j</annotation></semantics></math> data points.</p>
+<ul>
+<li class="fragment"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>n</mi></msub><annotation encoding="application/x-tex">x_n</annotation></semantics></math> is a vector representing the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>th data point</li>
+<li class="fragment"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>μ</mi><mi>j</mi></msub><annotation encoding="application/x-tex">\mu_j</annotation></semantics></math> is the geometric centroid of the data points in <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>j</mi></msub><annotation encoding="application/x-tex">S_j</annotation></semantics></math>.</li>
+</ul>
+</section>
+<section id="supervised-classification" class="slide level2">
+<h2>Supervised Classification</h2>
+<p>Time for an activity!</p>
+<p><img data-src="./img/activity-time.gif" /></p>
+</section>
+<section id="support-vector-machines" class="slide level2">
+<h2>Support Vector Machines</h2>
+<p>Use the grapher nb for motivation, maybe just give the optimization problem, define the terms, and say the kernel trick is choosing the correct mapping, just like minimizing distance in calc.</p>
+</section>
+<section id="deep-learning" class="slide level2">
+<h2>Deep Learning</h2>
+<p><img data-src="./img/dog-cat-ann.gif" /></p>
+<!-- ## Example: Life Satisfaction
+
+![](./img/life-sat-1.png)
+
+Can we find parameters $\theta_0$, $\theta_1$ for 
+
+$$lifeSat = \theta_0+\theta_1 \cdot GDP?$$
+
+-----
+
+![](./img/life-sat-2.png)
+
+There are infinitely many to choose from, but there can be only one.
+
+-----
+
+![](./img/life-sat-3.png)
+
+* The problem is, does this extend well when more data is added? 
+* Turns out more countries exist!
+
+------
+
+![](./img/life-sat-4.png)
+
+* The dotted line is our old model.
+* But when we refit with new data, we get a different line.
+* Notice it does not do such a great job for "poor" Luxembourg. 
+
+## Challenges of ML
+
+* Not enough training data.
+    * Turns out all models perform the same when given enough data.
+* Bad representation in data (Sampling Bias)
+    * Page 25 has a nice example of this.
+* Poor Quality Data 
+    * Missing information
+    * too many outliers
+* Irrelevant Features
+* Overfitting training data
+
+----
+
+An example of overfitting using the Lagrange polynomial.
+
+![](./img/life-sat-5.png)
+
+---
+
+Overfitting happens when the model is too complex relative to the amount of noisiness of the training data. Solutions are 
+
+* Simplify the model by selecting hone with fewer parameters (maybe just use $\theta_1$?)
+* Gather more data (very expensive)
+* reduce the noise (fill in missing info, remove outliers)
+
+-----
+
+In our situation, if we place bounds on $\theta_1$, we can then have two variables to "move around". This process is called **regularization**.
+
+![](./img/life-sat-6.png)
+
+
+ -->
+</section>
+    </div>
+  </div>
+
+  <script src="./reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: './reveal.js/plugin/markdown/marked.js' },
+          { src: './reveal.js/plugin/markdown/markdown.js' },
+          // { src: './reveal.js/plugin/notes/notes.js', async: true },
+          { src: './reveal.js/plugin/highlight/highlight.js', async: true },
+          { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: './reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: './reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
