@@ -128,73 +128,74 @@ Time for an activity!
 
 ## Support Vector Machines
 
-Use the grapher nb for motivation, maybe just give the optimization problem, define the terms, and say the kernel trick is choosing the correct mapping, just like minimizing distance in calc. 
+<img src="./img/sep-hyperplane.png" width="540" height="400"/>
+
+An example of linearly separable data. 
+
+----
+
+<img src="./img/sep-hyp2.png" width="600" height="375"/>
+
+To find our plane of separation, we maximize $r$, the closest distance from our plane $\langle w,x\rangle + b = 0$. Here think of the $\langle w,x\rangle$ as the dot product. 
+
+--- 
+
+## SVM Formal Problem
+
+![](./img/svm-formal.png)
+
+* $w$ is our normal vector defining the plane, 
+* $x_n$ is a data point vector
+* want $\langle w,x\rangle + b > 0$ or $\langle w,x\rangle + b < 0$
+* so let $y_n = \pm 1$.
+
+----
 
 
 ## Deep Learning
 
 ![](./img/dog-cat-ann.gif)
 
-<!-- ## Example: Life Satisfaction
+----
 
-![](./img/life-sat-1.png)
+![](./img/nn-nightmare.png)
 
-Can we find parameters $\theta_0$, $\theta_1$ for 
-
-$$lifeSat = \theta_0+\theta_1 \cdot GDP?$$
 
 -----
 
-![](./img/life-sat-2.png)
+## Questions!
 
-There are infinitely many to choose from, but there can be only one.
+* Where did the $w_i$'s come from?
+* Why in the world is $\hat y$ relevant?
+* Probably more...
 
------
+## Answer: Loss Function
 
-![](./img/life-sat-3.png)
+For each training example $(x^{(i)}, y^{(i)})$, we want:
 
-* The problem is, does this extend well when more data is added? 
-* Turns out more countries exist!
+$$
+\widehat{y}=\sigma(w^{T} \cdot x + b)
+$$ 
 
-------
+so that $\widehat{y} \approx y^{(i)}$. We need to compute the error of our model. Traditionally, the most used loss function is:
 
-![](./img/life-sat-4.png)
+$$ 
+L(\widehat{y}, y) = \frac{1}{2} (\widehat{y} - y)^2 
+$$
 
-* The dotted line is our old model.
-* But when we refit with new data, we get a different line.
-* Notice it does not do such a great job for "poor" Luxembourg. 
-
-## Challenges of ML
-
-* Not enough training data.
-	* Turns out all models perform the same when given enough data.
-* Bad representation in data (Sampling Bias)
-	* Page 25 has a nice example of this.
-* Poor Quality Data 
-	* Missing information
-	* too many outliers
-* Irrelevant Features
-* Overfitting training data
 
 ----
 
-An example of overfitting using the Lagrange polynomial.
+## Total loss (function)
 
-![](./img/life-sat-5.png)
-
----
-
-Overfitting happens when the model is too complex relative to the amount of noisiness of the training data. Solutions are 
-
-* Simplify the model by selecting hone with fewer parameters (maybe just use $\theta_1$?)
-* Gather more data (very expensive)
-* reduce the noise (fill in missing info, remove outliers)
-
------
-
-In our situation, if we place bounds on $\theta_1$, we can then have two variables to "move around". This process is called **regularization**.
-
-![](./img/life-sat-6.png)
+$$J(w, b) = \frac{1}{m} \sum^{m}_{i=1} L(\widehat{y}^{(i)}, y^{(i)})$$
 
 
- -->
+We refer to this as the _cost_ function, whereas the _loss_ function references a single example. Our goal is then to find $(w, b)$ that minimize $J$.
+
+## Gradient Decent
+
+The gradient, $\nabla J$, helps us find the minimum value of the cost function. As our cost function is concave up, we can iteratively compute new values for $(w,b)$ via the assignment
+$$
+\langle w,b \rangle := \langle w,b \rangle - \alpha \nabla J(w,b).
+$$

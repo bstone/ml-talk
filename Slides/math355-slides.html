@@ -182,74 +182,61 @@ J=\sum_{j=1}^K \sum_{n \in S_j} |x_n-\mu_j|^2.
 </section>
 <section id="support-vector-machines" class="slide level2">
 <h2>Support Vector Machines</h2>
-<p>Use the grapher nb for motivation, maybe just give the optimization problem, define the terms, and say the kernel trick is choosing the correct mapping, just like minimizing distance in calc.</p>
+<p><img src="./img/sep-hyperplane.png" width="540" height="400"/></p>
+<p>An example of linearly separable data.</p>
+</section>
+<section class="slide level2">
+
+<p><img src="./img/sep-hyp2.png" width="600" height="375"/></p>
+<p>To find our plane of separation, we maximize <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>, the closest distance from our plane <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>w</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">⟩</mo><mo>+</mo><mi>b</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\langle w,x\rangle + b = 0</annotation></semantics></math>. Here think of the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>w</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">⟩</mo></mrow><annotation encoding="application/x-tex">\langle w,x\rangle</annotation></semantics></math> as the dot product.</p>
+</section>
+<section id="svm-formal-problem" class="slide level2">
+<h2>SVM Formal Problem</h2>
+<p><img data-src="./img/svm-formal.png" /></p>
+<ul>
+<li class="fragment"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> is our normal vector defining the plane,</li>
+<li class="fragment"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>n</mi></msub><annotation encoding="application/x-tex">x_n</annotation></semantics></math> is a data point vector</li>
+<li class="fragment">want <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>w</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">⟩</mo><mo>+</mo><mi>b</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\langle w,x\rangle + b &gt; 0</annotation></semantics></math> or <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>w</mi><mo>,</mo><mi>x</mi><mo stretchy="false" form="postfix">⟩</mo><mo>+</mo><mi>b</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\langle w,x\rangle + b &lt; 0</annotation></semantics></math></li>
+<li class="fragment">so let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>n</mi></msub><mo>=</mo><mo>±</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y_n = \pm 1</annotation></semantics></math>.</li>
+</ul>
 </section>
 <section id="deep-learning" class="slide level2">
 <h2>Deep Learning</h2>
 <p><img data-src="./img/dog-cat-ann.gif" /></p>
-<!-- ## Example: Life Satisfaction
+</section>
+<section class="slide level2">
 
-![](./img/life-sat-1.png)
-
-Can we find parameters $\theta_0$, $\theta_1$ for 
-
-$$lifeSat = \theta_0+\theta_1 \cdot GDP?$$
-
------
-
-![](./img/life-sat-2.png)
-
-There are infinitely many to choose from, but there can be only one.
-
------
-
-![](./img/life-sat-3.png)
-
-* The problem is, does this extend well when more data is added? 
-* Turns out more countries exist!
-
-------
-
-![](./img/life-sat-4.png)
-
-* The dotted line is our old model.
-* But when we refit with new data, we get a different line.
-* Notice it does not do such a great job for "poor" Luxembourg. 
-
-## Challenges of ML
-
-* Not enough training data.
-    * Turns out all models perform the same when given enough data.
-* Bad representation in data (Sampling Bias)
-    * Page 25 has a nice example of this.
-* Poor Quality Data 
-    * Missing information
-    * too many outliers
-* Irrelevant Features
-* Overfitting training data
-
-----
-
-An example of overfitting using the Lagrange polynomial.
-
-![](./img/life-sat-5.png)
-
----
-
-Overfitting happens when the model is too complex relative to the amount of noisiness of the training data. Solutions are 
-
-* Simplify the model by selecting hone with fewer parameters (maybe just use $\theta_1$?)
-* Gather more data (very expensive)
-* reduce the noise (fill in missing info, remove outliers)
-
------
-
-In our situation, if we place bounds on $\theta_1$, we can then have two variables to "move around". This process is called **regularization**.
-
-![](./img/life-sat-6.png)
-
-
- -->
+<p><img data-src="./img/nn-nightmare.png" /></p>
+</section>
+<section id="questions" class="slide level2">
+<h2>Questions!</h2>
+<ul>
+<li class="fragment">Where did the <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>w</mi><mi>i</mi></msub><annotation encoding="application/x-tex">w_i</annotation></semantics></math>’s come from?</li>
+<li class="fragment">Why in the world is <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>y</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat y</annotation></semantics></math> relevant?</li>
+<li class="fragment">Probably more…</li>
+</ul>
+</section>
+<section id="answer-loss-function" class="slide level2">
+<h2>Answer: Loss Function</h2>
+<p>For each training example <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msup><mi>x</mi><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow></msup><mo>,</mo><msup><mi>y</mi><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(x^{(i)}, y^{(i)})</annotation></semantics></math>, we want:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo>=</mo><mi>σ</mi><mo stretchy="false" form="prefix">(</mo><msup><mi>w</mi><mi>T</mi></msup><mo>⋅</mo><mi>x</mi><mo>+</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">
+\widehat{y}=\sigma(w^{T} \cdot x + b)
+</annotation></semantics></math></p>
+<p>so that <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo>≈</mo><msup><mi>y</mi><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\widehat{y} \approx y^{(i)}</annotation></semantics></math>. We need to compute the error of our model. Traditionally, the most used loss function is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo>,</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo stretchy="false" form="prefix">(</mo><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>y</mi><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex"> 
+L(\widehat{y}, y) = \frac{1}{2} (\widehat{y} - y)^2 
+</annotation></semantics></math></p>
+</section>
+<section id="total-loss-function" class="slide level2">
+<h2>Total loss (function)</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><mi>L</mi><mo stretchy="false" form="prefix">(</mo><msup><mover><mi>y</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow></msup><mo>,</mo><msup><mi>y</mi><mrow><mo stretchy="false" form="prefix">(</mo><mi>i</mi><mo stretchy="false" form="postfix">)</mo></mrow></msup><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">J(w, b) = \frac{1}{m} \sum^{m}_{i=1} L(\widehat{y}^{(i)}, y^{(i)})</annotation></semantics></math></p>
+<p>We refer to this as the <em>cost</em> function, whereas the <em>loss</em> function references a single example. Our goal is then to find <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(w, b)</annotation></semantics></math> that minimize <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>.</p>
+</section>
+<section id="gradient-decent" class="slide level2">
+<h2>Gradient Decent</h2>
+<p>The gradient, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>J</mi></mrow><annotation encoding="application/x-tex">\nabla J</annotation></semantics></math>, helps us find the minimum value of the cost function. As our cost function is concave up, we can iteratively compute new values for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(w,b)</annotation></semantics></math> via the assignment <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⟨</mo><mi>w</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">⟩</mo><mo>:=</mo><mo stretchy="false" form="prefix">⟨</mo><mi>w</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">⟩</mo><mo>−</mo><mi>α</mi><mi>∇</mi><mi>J</mi><mo stretchy="false" form="prefix">(</mo><mi>w</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\langle w,b \rangle := \langle w,b \rangle - \alpha \nabla J(w,b).
+</annotation></semantics></math></p>
 </section>
     </div>
   </div>
